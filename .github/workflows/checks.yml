@@ -1,0 +1,28 @@
+name: Checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  fixture-tests:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check shell syntax
+        run: |
+          /bin/bash -n bin/cs2-mac
+          for file in lib/*.sh tests/*.sh scripts/*.sh *.command; do
+            /bin/bash -n "$file"
+          done
+      - name: Run isolated tests
+        run: |
+          for file in tests/test_*.sh; do
+            /bin/bash "$file"
+          done
+      - name: Check release inputs
+        run: |
+          /bin/bash scripts/package.sh
+          unzip -t dist/CS2-Mac.zip
+          (cd dist && shasum -a 256 -c SHA256SUMS)
+        working-directory: .

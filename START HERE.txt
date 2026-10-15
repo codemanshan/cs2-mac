@@ -1,0 +1,31 @@
+CS2 FOR APPLE SILICON MACS
+
+1. Double-click “Install CS2.command”.
+   Choose a folder for the game; an external SSD is fine.
+
+2. Finish the Windows Steam installer, sign in to your own account, and install
+   Counter-Strike 2. Choose V:\ as the Steam library on the selected drive.
+
+3. In that Windows Steam, open CS2 > Properties > General > Launch Options.
+   Paste the options the installer copied, or run bin/cs2-mac options to see them.
+
+4. Open “CS2” in your user Applications folder to play. Drag it into the Dock
+   for easy access. If the library window appears, press Play in Windows Steam.
+
+The first launch may use CS2's initial quality settings. Quit the game normally
+and use the CS2 launcher again to apply the preset to its new video settings.
+Resolution and renderer pacing are configured by the first launch.
+
+If macOS blocks opening the downloaded script, review its source and use the
+normal macOS Open Anyway flow in System Settings > Privacy & Security. The
+toolkit does not disable Gatekeeper or remove quarantine.
+
+Apple silicon and macOS 14.6 or newer are required. Rosetta must already be
+installed. If it is missing, follow the installer message and review Apple's
+license yourself. This project never accepts it automatically.
+
+This is an experimental compatibility setup, not an official Mac version.
+Rare hitches remain in the measured setup. No fixed FPS or VAC guarantee is
+made. FACEIT Anti-cheat is unsupported. See README.md and docs/compatibility.md.
+
+Help: https://github.com/codemanshan/cs2-mac/issues

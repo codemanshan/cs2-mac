@@ -1,0 +1,47 @@
+#!/bin/bash
+set -euo pipefail
+CS2MAC_SOURCE_DIR=$(cd -P "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+export CS2MAC_SOURCE_DIR
+. "$CS2MAC_SOURCE_DIR/lib/common.sh"
+
+usage() {
+  cat <<'HELP'
+CS2 for Apple Silicon Macs
+
+  cs2-mac setup --library ABSOLUTE_PATH [--profile balanced1080|quality1440]
+                [--refresh-hz auto|0..360] [--dry-run] [--no-steam-install] [--resume]
+  cs2-mac play           Open Windows Steam / CS2 in this isolated setup
+  cs2-mac steam-install  Resume the official Windows Steam installer
+  cs2-mac doctor         Check this installation without reading account data
+  cs2-mac stop           Close only this setup's Windows processes
+  cs2-mac options        Show the one-time Steam launch options
+  cs2-mac help
+
+No game files, account data or third-party binaries are bundled.
+HELP
+}
+
+command=${1:-help}
+if [ "$#" -gt 0 ]; then shift; fi
+case "$command" in
+  help|-h|--help) usage ;;
+  options)
+    profile=$(cs2mac_state_get profile 2>/dev/null || cs2mac_choose_profile)
+    cs2mac_launch_options "$profile"
+    ;;
+  setup)
+    . "$CS2MAC_SOURCE_DIR/lib/launch.sh"
+    . "$CS2MAC_SOURCE_DIR/lib/install.sh"
+    cs2mac_setup "$@"
+    ;;
+  steam-install)
+    . "$CS2MAC_SOURCE_DIR/lib/launch.sh"
+    . "$CS2MAC_SOURCE_DIR/lib/install.sh"
+    cs2mac_install_steam "$@"
+    ;;
+  play|doctor|stop)
+    . "$CS2MAC_SOURCE_DIR/lib/launch.sh"
+    "cs2mac_$command" "$@"
+    ;;
+  *) cs2mac_error "Unknown command: $command"; usage >&2; exit 2 ;;
+esac

@@ -1,0 +1,28 @@
+{
+  "verified_at_utc": "2026-10-15",
+  "distribution": "Installer downloads upstream files; this repository does not redistribute them.",
+  "template": {
+    "name": "Template-1.0.22.tar.xz",
+    "url": "https://github.com/Sikarugir-App/Template/releases/download/v1.0/Template-1.0.22.tar.xz",
+    "size_bytes": 96025412,
+    "sha256": "02a8e9e1140121128188bce5380b5adf187fd6084fd2cb266e22cc8ab50e5155",
+    "digest_source": "Official GitHub release API asset640377160",
+    "bundled_dxmt_version": "v0.80-244-g7c8dee1"
+  },
+  "wine": {
+    "name": "WS12WineSikarugir11.0_1.tar.xz",
+    "url": "https://github.com/Sikarugir-App/Engines/releases/download/v1.0/WS12WineSikarugir11.0_1.tar.xz",
+    "size_bytes": 167322744,
+    "sha256": "67e29fb3d74f363af39c69ba11f9b13a79812c5db07cf4748672658e4a200a0e",
+    "digest_source": "Official GitHub release API asset602173037"
+  },
+  "steam_installer": {
+    "name": "SteamSetup.exe",
+    "url": "https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe",
+    "size_bytes": 2380800,
+    "sha256": "7d3654531c32d941b8cae81c4137fc542172bfa9635f169cb392f245a0a12bcb",
+    "digest_source": "Observed SHA-256 of bytes fetched from Valve's HTTPS installer URL; no independent vendor digest was published.",
+    "mutable_url": true,
+    "update_policy": "Fail closed if bytes change; maintainer must review and update this pin."
+  }
+}
