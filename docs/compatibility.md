@@ -15,7 +15,9 @@ Rosetta availability and future macOS compatibility are controlled by Apple. Thi
 
 The measured setup used Template 1.0.22, Wine Sikarugir 11.0_1, and the template's matched DXMT `v0.80-244-g7c8dee1`. It ran ordinary offline Dust II gameplay on a Mac Studio with M5 Max and 36 GiB memory, on macOS 27.0.1, at 2560 x 1440 on a fixed 144 Hz display. See [measurements](measurements.md) for results and limits.
 
-The final profile felt good to the tester. It **did not meet the original requirement of staying at or above 120 FPS through the slow tail**. No minimum FPS or latency is guaranteed on this or another Mac. Online matchmaking, voice chat, every map, future game updates, and a clean end-to-end installation on other Macs need separate validation.
+The final profile felt good to the tester. It **did not meet the original requirement of staying at or above 120 FPS through the slow tail**. No minimum FPS or latency is guaranteed on this or another Mac.
+
+**Online matchmaking is reported working by the maintainer on the same M5 Max development setup.** This is a user report, separate from the offline timing captures. The specific matchmaking mode, server details and session duration were not recorded; it does not establish that every mode or future game build works. Voice chat, every map, and a clean end-to-end installation on other Macs still need separate validation.
 
 The measurements came from the development runtime. Installer tests use synthetic fixtures; a complete new installation through prefix creation, the real Steam installer, sign-in, game download, and play has not been verified end to end for this release.
 
@@ -25,7 +27,7 @@ Valve's [CS2 store page](https://store.steampowered.com/app/730/) lists Windows 
 
 The installer and launcher must leave the native Mac Steam app alone. Users sign in to their own separate Windows Steam installation and obtain CS2 from Valve. The project does not distribute Steam account data, session files, game files, or modified game executables. It does not provide a DRM or anti-cheat bypass.
 
-Valve's [VAC policy](https://help.steampowered.com/en/faqs/view/571A-97DA-70E9-FF74) describes bans for cheats and modifications designed to give an advantage. It does not give this kit a compatibility or ban-safety guarantee. Successful offline play does not establish that protected matchmaking works. If Steam or the game refuses a protected session, stop and use official support; do not patch checks to enter it.
+Valve's [VAC policy](https://help.steampowered.com/en/faqs/view/571A-97DA-70E9-FF74) describes bans for cheats and modifications designed to give an advantage. The working matchmaking report above is not Valve certification or a ban-safety guarantee. If Steam or the game refuses a protected session, stop and use official support; do not patch checks to enter it.
 
 **FACEIT Anti-cheat is unsupported.** FACEIT says it includes a Windows kernel driver and has no Mac or Linux version. This Wine setup cannot meet that requirement. See [FACEIT's explanation](https://support.faceit.com/hc/en-us/articles/9394666828188-What-is-FACEIT-Anti-cheat-and-how-does-it-work).
 

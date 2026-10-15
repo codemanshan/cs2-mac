@@ -2,6 +2,8 @@
 
 These are development observations from one Mac, not a performance guarantee. The final paced profile felt good to the tester. The original target of at least 120 real FPS through the slow tail **was not met**.
 
+**Online update:** the maintainer subsequently reported that online matchmaking works on the same M5 Max setup. The timing captures below remain offline Dust II measurements; no online timing capture or specific matchmaking mode was recorded. See [compatibility](compatibility.md#what-has-been-tested) for the current tested status.
+
 ## Test setup
 
 | Item | Value |
@@ -47,7 +49,7 @@ The pacing improvement also came with more presentation delay. In the MSync pass
 - Instrumentation overhead was not quantified. Per-second focus checks were true throughout each selected capture, but do not independently prove visibility of every drawable.
 - The trace's `Detached` field has no verified public definition in the Apple documentation examined. It was not interpreted as a count of dropped frames or proof of visible frames.
 - A percentile interval is not the same statistic as an average of the slowest 1% of frames. Earlier in-game benchmark figures used different methods and are not mixed into this table.
-- Offline results do not validate protected matchmaking, voice chat, other maps, prolonged sessions, or other Macs.
+- These offline timing captures do not measure online performance, voice chat, other maps, prolonged sessions, or other Macs. The separate working-matchmaking report above does not extend the timing results to online play.
 - These are measurements of the development runtime, not an end-to-end test of this public installer. Installer tests use synthetic fixtures. Real fresh prefix creation, Steam installation and sign-in, game download, and play have not been validated together for this release.
 
 ## Reproducing a useful comparison
